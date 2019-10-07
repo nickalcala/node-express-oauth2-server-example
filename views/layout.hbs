@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>{{title}}</title>
+        <link rel='stylesheet'
+              href='/stylesheets/style.css' />
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark bg-dark shadow-sm">
+            <a class="navbar-brand"
+               href="#">Node Express OAuth Server Example</a>
+        </nav>
+        <div class="main container">
+            {{#if message.length}}
+                <div class="alert alert-info">
+                    {{message}}
+                </div>
+            {{/if}}
+            {{{body}}}
+        </div>
+    </body>
+
+</html>
