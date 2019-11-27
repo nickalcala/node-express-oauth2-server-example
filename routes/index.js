@@ -10,6 +10,9 @@ let oauth = new OAuthServer({
 
 router.use(require('./oauth'));
 router.use(require('./public'));
+router.use('/account', oauth.authenticate(), (req, res) => {
+    return res.json(res.locals.oauth.token.user);
+});
 router.use('/secured/profile', oauth.authenticate(), (req, res) => {
     return res.render('secured', { token: JSON.stringify(res.locals) });
 });
