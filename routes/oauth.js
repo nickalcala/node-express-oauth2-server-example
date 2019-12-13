@@ -9,7 +9,10 @@ let oauth = new OAuthServer({
 });
 
 router.post('/oauth/access_token', oauth.token({
-    requireClientAuthentication: { authorization_code: false }
+    requireClientAuthentication: {
+        authorization_code: false,
+        refresh_token: false
+    }
 }));
 
 router.get('/oauth/authenticate', async (req, res, next) => {

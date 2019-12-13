@@ -50,7 +50,7 @@ module.exports.getAccessToken = async (accessToken) => {
     return _accessToken;
 };
 
-module.exports.refreshTokenModel = (refreshToken) => {
+module.exports.getRefreshToken = (refreshToken) => {
     return OAuthAccessTokenModel.findOne({ refreshToken: refreshToken })
         .populate('user')
         .populate('client');
@@ -116,7 +116,7 @@ module.exports.saveAuthorizationCode = (code, client, user) => {
 
 module.exports.revokeToken = async (accessToken) => {
     let result = await OAuthAccessTokenModel.deleteOne({
-        accessToken: accessToken
+        refreshToken: accessToken.refreshToken
     });
     return result.deletedCount > 0;
 };
